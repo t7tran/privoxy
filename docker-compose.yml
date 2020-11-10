@@ -1,0 +1,7 @@
+version: '3.4'
+services:
+  privoxy:
+    image: coolersport/privoxy:3.0.28
+    read_only: true
+    ports:
+    - "8118:8118"
