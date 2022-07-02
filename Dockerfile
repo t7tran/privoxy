@@ -2,7 +2,9 @@ FROM alpine:3.15
 
 COPY --chown=100:101 ./rootfs /
 
-RUN apk add --no-cache privoxy
+RUN apk add --no-cache privoxy && \
+    cd /etc/privoxy && \
+    for f in `ls -1 *.new`; do mv $f ${f%.*}; done
 
 USER privoxy
 
